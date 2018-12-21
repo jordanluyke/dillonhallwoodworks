@@ -1,0 +1,11 @@
+.container
+    p.title {{creation.title}}
+    .row
+        .col-sm-9.col-md-6.mx-auto
+            img.large([src]="creation.imgs[activeImgIndex]")
+            .gallery
+                .row.no-gutters.align-items-start
+                    .col-3(*ngFor="let img of creation.imgs; let i = index")
+                        .img-small-ctnr((click)="activeImgIndex = i", [ngClass]="{active: activeImgIndex == i}")
+                            img.small([src]="creation.imgs[i]")
+            p.desc {{creation.description}}
