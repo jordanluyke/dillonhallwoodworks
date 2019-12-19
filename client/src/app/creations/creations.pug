@@ -3,6 +3,6 @@
         .col-sm-9.mx-auto
             .row.align-items-start
                 .col-sm-4(*ngFor="let creation of creations; let i = index")
-                    .creation(routerLink="/creations/{{creations.length - i - 1}}")
+                    .creation(routerLink="/creations/{{creations.length - i - 1}}", skipLocationChange)
                         img([src]="creation.imgs[0]")
                         p.title {{creation.title}}

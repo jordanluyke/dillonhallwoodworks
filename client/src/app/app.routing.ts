@@ -1,6 +1,6 @@
 import {ModuleWithProviders} from '@angular/core'
 import {Routes, RouterModule} from '@angular/router'
-import {HomeComponent} from './home/home.component'
+import {CreationsComponent} from './creations/creations.component'
 import {AboutComponent} from './about/about.component'
 import {ContactComponent} from './contact/contact.component'
 import {CreationComponent} from './creation/creation.component'
@@ -8,7 +8,7 @@ import {CreationComponent} from './creation/creation.component'
 const routes: Routes = [
     {
         path: '',
-        component: HomeComponent
+        component: CreationsComponent
     }, {
         path: 'about',
         component: AboutComponent

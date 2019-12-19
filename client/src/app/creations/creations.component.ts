@@ -2,11 +2,11 @@ import {Component} from '@angular/core'
 import {CreationService} from '../../shared/index'
 
 @Component({
-    selector: 'home-component',
-    styleUrls: ['home.css'],
-    templateUrl: 'home.html'
+    selector: 'creations-component',
+    styleUrls: ['creations.css'],
+    templateUrl: 'creations.html'
 })
-export class HomeComponent {
+export class CreationsComponent {
 
     public creations = this.creationService.creations.slice().reverse()
 
