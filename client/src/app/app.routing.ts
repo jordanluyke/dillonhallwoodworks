@@ -3,7 +3,6 @@ import {Routes, RouterModule} from '@angular/router'
 import {CreationsComponent} from './creations/creations.component'
 import {AboutComponent} from './about/about.component'
 import {ContactComponent} from './contact/contact.component'
-import {CreationComponent} from './creation/creation.component'
 
 const routes: Routes = [
     {
@@ -15,9 +14,6 @@ const routes: Routes = [
     }, {
         path: 'contact',
         component: ContactComponent
-    }, {
-        path: 'creations/:id',
-        component: CreationComponent,
     }, {
         path: '**',
         redirectTo: '/',

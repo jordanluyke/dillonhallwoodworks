@@ -6,7 +6,6 @@ import {CreationsComponent} from './creations/creations.component'
 import {AboutComponent} from './about/about.component'
 import {ContactComponent} from './contact/contact.component'
 import {HeaderComponent, FooterComponent} from './partials/index'
-import {CreationComponent} from './creation/creation.component'
 
 @NgModule({
     imports: [
@@ -20,7 +19,6 @@ import {CreationComponent} from './creation/creation.component'
         CreationsComponent,
         AboutComponent,
         ContactComponent,
-        CreationComponent
     ],
     bootstrap: [AppComponent]
 })
