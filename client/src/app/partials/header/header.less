@@ -20,6 +20,8 @@
             font-weight: @font-weight-semibold;
             color: @font-color;
             text-decoration: none;
+            border-bottom: 2px solid rgba(0, 0, 0, 0);
+            transition: border-bottom-color 300ms;
             &:first-child {
                 margin-left: 0;
             }
@@ -27,7 +29,7 @@
                 margin-right: 0;
             }
             &.active {
-                color: lighten(@font-color, 30%);
+                border-bottom-color: @font-color;
                 cursor: default;
             }
         }

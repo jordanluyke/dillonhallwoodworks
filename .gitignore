@@ -4,3 +4,4 @@ client/node_modules
 client/npm-debug.log
 log/
 .DS_Store
+client/target/
