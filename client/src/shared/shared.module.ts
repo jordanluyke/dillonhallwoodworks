@@ -15,7 +15,7 @@ import {CreationService} from './services/index'
         CommonModule,
         FormsModule,
         RouterModule,
-        NgbModule.forRoot(),
+        NgbModule,
     ],
     declarations: [
         HeaderDefaultComponent
