@@ -2,6 +2,6 @@
     .row
         .col-sm-10.mx-auto
             .row.d-flex.align-items-start
-                .col-sm-4(*ngFor="let url of igUrls")
+                .col-md-4.col-sm-6(*ngFor="let url of igUrls")
                     a.creation(target="_blank", rel="noreferrer", href="{{url}}")
                         img([src]="url + '/media/?size=m'")
