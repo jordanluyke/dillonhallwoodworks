@@ -1,6 +1,7 @@
 .container
     .row
-        .col-sm-11.mx-auto
-            .row.d-flex.justify-content-around
-                .col-sm-5(*ngFor="let embed of igEmbedList")
-                    .creation([innerHtml]="embed")
+        .col-sm-10.mx-auto
+            .row.d-flex.align-items-start
+                .col-sm-4(*ngFor="let url of igUrls")
+                    a.creation([href]="url" target="_blank" rel="noreferrer")
+                        img([src]="url + '/media/?size=m'")
