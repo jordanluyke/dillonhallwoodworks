@@ -1,4 +1,6 @@
-import {Component} from '@angular/core'
+import {Component, OnInit} from '@angular/core'
+import {CacheService} from '../../shared/index'
+import {tap} from 'rxjs/operators'
 
 @Component({
     selector: 'creations-component',
@@ -7,7 +9,7 @@ import {Component} from '@angular/core'
 })
 export class CreationsComponent {
 
-    public igUrls = [
+    public igIds = [
         "Bv77_n9nAjx",
         "ByGh2PyHdC4",
         "BvkdmJAnYG_",
@@ -15,5 +17,10 @@ export class CreationsComponent {
         "Bxab-arHPz6",
         "BwoSmrvHn40",
     ]
-        .map(id => "https://instagram.com/p/" + id)
+
+    constructor(public cacheService: CacheService) {}
+
+    public toIgUrl(id: string): string {
+        return `https://instagram.com/p/${id}/media?size=m`
+    }
 }
