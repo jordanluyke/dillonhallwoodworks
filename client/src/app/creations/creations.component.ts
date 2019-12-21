@@ -15,7 +15,5 @@ export class CreationsComponent {
         "Bxab-arHPz6",
         "BwoSmrvHn40",
     ]
-        .map(id => {
-            return "https://instagram.com/p/" + id
-        })
+        .map(id => "https://instagram.com/p/" + id)
 }

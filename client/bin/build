@@ -249,6 +249,7 @@ let copyFiles = () => {
                 "bootstrap",
                 "@fortawesome",
                 "zone.js",
+                "@babel/polyfill",
                 "typeface-nunito-sans",
             ]
 
@@ -333,11 +334,7 @@ let bundle = () => {
                     }, {})
             }),
             babel({
-                presets: ["@babel/preset-env", {
-                    corejs: 3,
-                    modules: false,
-                    useBuiltIns: "usage",
-                }],
+                presets: ["@babel/preset-env"],
                 plugins: ["@babel/plugin-external-helpers"],
                 include: path.join(client, "node_modules"),
                 babelrc: false,
