@@ -3,5 +3,5 @@
         .col-sm-10.mx-auto
             .row.d-flex.align-items-start
                 .col-md-4.col-sm-6(*ngFor="let id of igIds")
-                    a.creation(target="_blank", rel="noreferrer", href="{{toIgUrl(id)}}")
+                    a.creation([href]="toIgUrl(id)", target="_blank", rel="noreferrer")
                         img([src]="cacheService.getImgSrc(id, toIgUrl(id)) | async")

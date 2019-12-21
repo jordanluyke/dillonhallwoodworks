@@ -38,8 +38,7 @@ export class CacheService {
                         type: 'image/jpeg'
                     })
                     let url = window.URL.createObjectURL(blob)
-                    let img = this.sanitizer.bypassSecurityTrustUrl(url)
-                    return img
+                    return this.sanitizer.bypassSecurityTrustUrl(url)
                 }),
                 catchError(err => Observable.throw(err))
             )
