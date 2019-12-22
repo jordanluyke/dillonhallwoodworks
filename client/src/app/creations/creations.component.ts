@@ -1,15 +1,14 @@
 import {Component, OnInit} from '@angular/core'
-import {CacheService} from '../../shared/index'
-import {tap} from 'rxjs/operators'
+import {InstagramImage, InstagramService} from '../../shared/index'
 
 @Component({
     selector: 'creations-component',
     styleUrls: ['creations.css'],
     templateUrl: 'creations.html'
 })
-export class CreationsComponent {
+export class CreationsComponent implements OnInit {
 
-    public igIds = [
+    public images = [
         "Bv77_n9nAjx",
         "ByGh2PyHdC4",
         "BvkdmJAnYG_",
@@ -17,10 +16,11 @@ export class CreationsComponent {
         "Bxab-arHPz6",
         "BwoSmrvHn40",
     ]
+        .map(id => new InstagramImage(id))
 
-    constructor(public cacheService: CacheService) {}
+    constructor(private instagramService: InstagramService) {}
 
-    public toIgUrl(id: string): string {
-        return `https://instagram.com/p/${id}/media?size=m`
+    public ngOnInit(): void {
+        this.instagramService.load(this.images)
     }
 }

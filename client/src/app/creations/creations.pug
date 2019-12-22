@@ -2,6 +2,6 @@
     .row
         .col-sm-10.mx-auto
             .row.d-flex.align-items-start
-                .col-md-4.col-sm-6(*ngFor="let id of igIds")
-                    a.creation([href]="toIgUrl(id)", target="_blank", rel="noreferrer")
-                        img([src]="cacheService.getImgSrc(id, toIgUrl(id)) | async")
+                .col-md-4.col-sm-6(*ngFor="let img of images")
+                    a.creation([href]="img.getPostUrl()", target="_blank", rel="noreferrer")
+                        img([src]="img.src", *ngIf="img.src != null")

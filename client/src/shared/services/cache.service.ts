@@ -1,7 +1,7 @@
-import {Injectable, SecurityContext} from '@angular/core'
+import {Injectable} from '@angular/core'
 import {HttpClient} from '@angular/common/http'
 import {Observable, of, defer, ReplaySubject} from 'rxjs'
-import {catchError, tap, map, flatMap} from 'rxjs/operators'
+import {map, flatMap} from 'rxjs/operators'
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser'
 
 @Injectable()
@@ -11,7 +11,7 @@ export class CacheService {
 
     constructor(
         private httpClient: HttpClient,
-        private sanitizer: DomSanitizer
+        private sanitizer: DomSanitizer,
     ) {}
 
     public getImgSrc(id: string, url: string): Observable<SafeUrl> {
@@ -24,10 +24,10 @@ export class CacheService {
             })
                 .pipe(
                     map(data => {
-                        let s: ReplaySubject<ArrayBuffer> = new ReplaySubject(1)
-                        this.imgCache.set(id, s)
-                        s.next(data)
-                        return s
+                        let subject: ReplaySubject<ArrayBuffer> = new ReplaySubject(1)
+                        this.imgCache.set(id, subject)
+                        subject.next(data)
+                        return subject
                     })
                 )
         })
@@ -39,8 +39,7 @@ export class CacheService {
                     })
                     let url = window.URL.createObjectURL(blob)
                     return this.sanitizer.bypassSecurityTrustUrl(url)
-                }),
-                catchError(err => Observable.throw(err))
+                })
             )
     }
 }
