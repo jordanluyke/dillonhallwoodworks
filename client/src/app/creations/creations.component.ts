@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core'
 import {ImageLoaderService, ErrorHandlingSubscriber} from '../../shared/index'
 import {from, Observable} from 'rxjs'
-import {flatMap, tap, take, toArray} from 'rxjs/operators'
+import {flatMap, tap, take, toArray, delay} from 'rxjs/operators'
 import {SafeUrl} from '@angular/platform-browser'
 
 @Component({
@@ -13,14 +13,17 @@ export class CreationsComponent implements OnInit {
 
     public images = this.imageLoaderService.creations
     public showSpinner = true
+    public active = false
 
     constructor(private imageLoaderService: ImageLoaderService) {}
 
     public ngOnInit(): void {
         this.onLoad()
-            .pipe(tap(src => {
-                this.showSpinner = false
-            }))
+            .pipe(
+                tap(Void => this.showSpinner = false),
+                delay(100),
+                tap(Void => this.active = true)
+            )
             .subscribe(new ErrorHandlingSubscriber())
     }
 
