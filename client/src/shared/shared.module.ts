@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http'
 import {RouterModule} from '@angular/router'
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
-import {CacheService, InstagramService} from './services/index'
+import {CacheService, ImageLoaderService} from './services/index'
 
 @NgModule({
     imports: [
@@ -20,7 +20,7 @@ import {CacheService, InstagramService} from './services/index'
     ],
     providers: [
         CacheService,
-        InstagramService,
+        ImageLoaderService,
     ],
     exports: [
         BrowserModule,

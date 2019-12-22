@@ -1,18 +1,14 @@
-import {Component, OnInit} from '@angular/core'
-import {InstagramImage, InstagramService} from '../../shared/index'
+import {Component} from '@angular/core'
+import {ImageLoaderService} from '../../shared/index'
 
 @Component({
     selector: 'about-component',
     styleUrls: ['about.css'],
     templateUrl: 'about.html'
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent {
 
-    public images: InstagramImage[] = ["B6CvzAsHZSB"].map(id => new InstagramImage(id))
+    public images = this.imageLoaderService.about
 
-    constructor(public instagramService: InstagramService) {}
-
-    public ngOnInit(): void {
-        this.instagramService.load(this.images)
-    }
+    constructor(private imageLoaderService: ImageLoaderService) {}
 }
