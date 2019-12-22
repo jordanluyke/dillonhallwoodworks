@@ -3,6 +3,7 @@ import {SafeUrl} from '@angular/platform-browser'
 
 export class InstagramImage {
 
+    public onLoad: ReplaySubject<SafeUrl> = new ReplaySubject(1)
     public src?: SafeUrl
 
     constructor(public id: string) {}

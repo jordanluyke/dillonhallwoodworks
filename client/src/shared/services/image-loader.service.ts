@@ -25,7 +25,10 @@ export class ImageLoaderService {
     public start(): void {
         from(this.creations.concat(this.about))
             .pipe(flatMap(img => this.cacheService.getImgSrc(img.id, img.getMediaUrl())
-                .pipe(tap(src => img.src = src))))
+                .pipe(tap(src => {
+                    img.src = src
+                    img.onLoad.next(src)
+                }))))
             .subscribe(new ErrorHandlingSubscriber())
     }
 }
