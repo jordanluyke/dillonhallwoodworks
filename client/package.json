@@ -37,7 +37,6 @@
     "rxjs": "6.5.3",
     "systemjs": "0.21.4",
     "tslint": "5.20.1",
-    "typeface-nunito-sans": "0.0.72",
     "typescript": "3.5.3",
     "zone.js": "0.9.1"
   }

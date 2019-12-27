@@ -250,7 +250,6 @@ let copyFiles = () => {
                 "@fortawesome",
                 "zone.js",
                 "@babel/polyfill",
-                "typeface-nunito-sans",
             ]
 
             if(argv.dev)

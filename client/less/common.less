@@ -1,11 +1,11 @@
 html, body {
-    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Blackletter', sans-serif;
     font-weight: @font-weight-regular;
     font-size: 16px;
     color: @font-color;
     height: 100%;
     width: 100%;
-    background-color: #fff;
+    background-color: @background-color;
     letter-spacing: 0.2px;
 }
 
@@ -20,11 +20,11 @@ p {
 }
 
 a {
-    color: @primary-color;
+    color: @font-color;
     transition: color 50ms;
     outline: 0;
     &:hover{
-        color: darken(@primary-color, 5%);
+        color: darken(@font-color, 5%);
     }
 }
 
