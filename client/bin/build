@@ -14,7 +14,7 @@ const nodeResolve = require('rollup-plugin-node-resolve')
 const commonjs = require('rollup-plugin-commonjs')
 const babel = require('rollup-plugin-babel')
 const util = require('util')
-const tslint = require('tslint')
+const eslint = require('eslint')
 
 const client = path.join(__dirname, "..")
 const autoprefixPlugin = new LessPluginAutoPrefix({browsers: ["last 99 versions"]})
@@ -272,16 +272,14 @@ let lint = (file) => {
         fix: false,
         formatter: "json"
     }
-    let linter = new tslint.Linter(options)
-    let configuration = tslint.Configuration.findConfiguration(path.join(client, "tslint.json")).results
+    let linter = new eslint.Linter(options, path.join(client, "eslint.json"))
 
     let lintFile = (file) => {
         return new Promise((resolve, reject) => fs.readFile(file, "utf8")
             .then(source => {
-                linter.lint(path.basename(file), source, configuration)
-                let result = linter.getResult()
-                if(result.errorCount > 0) {
-                    result.failures.forEach(failure => {
+                let messages = linter.verify(path.basename(file), source)
+                if(messages.errorCount > 0) {
+                    messages.failures.forEach(failure => {
                         let startLine = failure.startPosition.lineAndCharacter.line + 1
                         let message = failure.failure
                         console.log(`Error ${path.relative(client, file)} line ${startLine}: ${message}`)

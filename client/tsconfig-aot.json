@@ -19,6 +19,7 @@
         "target/src/main-aot.ts"
     ],
     "angularCompilerOptions": {
+        "enableIvy": false,
         "genDir": "target",
         "preserveWhitespaces": false,
         "skipMetadataEmit": true

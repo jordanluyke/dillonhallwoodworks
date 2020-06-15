@@ -33,6 +33,7 @@ let packages = {
     "compiler",
     "core",
     "forms",
+    "localize",
     "platform-browser",
     "platform-browser-dynamic",
     "router"
