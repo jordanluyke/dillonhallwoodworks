@@ -249,7 +249,6 @@ let copyFiles = () => {
                 "bootstrap",
                 "@fortawesome",
                 "zone.js",
-                "@babel/polyfill",
             ]
 
             if(argv.dev)
@@ -315,8 +314,6 @@ let bundle = () => {
             nodeResolve(),
             commonjs({
                 include: [
-                    "rxjs/**",
-                    "@ng-bootstrap/**",
                 ]
                     .map(p => path.join(client, "node_modules", p)),
                 namedExports: Object.entries({
@@ -331,7 +328,13 @@ let bundle = () => {
                     }, {})
             }),
             babel({
-                presets: ["@babel/preset-env"],
+                presets: ["@babel/preset-env", {
+                    corejs: {
+                        version: 3,
+                        proposals: true
+                    },
+                    useBuiltIns: "usage",
+                }],
                 plugins: ["@babel/plugin-external-helpers"],
                 include: path.join(client, "node_modules"),
                 babelrc: false,
