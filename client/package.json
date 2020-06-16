@@ -4,7 +4,8 @@
   "private": true,
   "main": "site/index.html",
   "scripts": {
-    "start": "node bin/build"
+    "start": "node bin/build",
+    "postinstall": "ngcc"
   },
   "dependencies": {
     "@angular/common": "9.1.11",
