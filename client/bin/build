@@ -10,9 +10,8 @@ const argv = require('minimist')(process.argv.slice(2))
 const path = require('path')
 const LessPluginAutoPrefix = require('less-plugin-autoprefix')
 const rollup = require('rollup')
-const nodeResolve = require('rollup-plugin-node-resolve')
-const commonjs = require('rollup-plugin-commonjs')
-const babel = require('rollup-plugin-babel')
+const nodeResolve = require('@rollup/plugin-node-resolve').nodeResolve
+const babel = require('@rollup/plugin-babel').babel
 const util = require('util')
 const eslint = require('eslint')
 
@@ -312,21 +311,6 @@ let bundle = () => {
         },
         plugins: [
             nodeResolve(),
-            commonjs({
-                include: [
-                ]
-                    .map(p => path.join(client, "node_modules", p)),
-                namedExports: Object.entries({
-                })
-                    .map(pair => {
-                        pair[0] = path.join(client, "node_modules", pair[0])
-                        return pair
-                    })
-                    .reduce((previous, current) => {
-                        previous[current[0]] = current[1]
-                        return previous
-                    }, {})
-            }),
             babel({
                 presets: ["@babel/preset-env", {
                     corejs: {
@@ -335,6 +319,7 @@ let bundle = () => {
                     },
                     useBuiltIns: "usage",
                 }],
+                babelHelpers: "bundled",
                 plugins: ["@babel/plugin-external-helpers"],
                 include: path.join(client, "node_modules"),
                 babelrc: false,
