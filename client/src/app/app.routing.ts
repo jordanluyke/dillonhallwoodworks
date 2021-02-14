@@ -1,13 +1,25 @@
 import {ModuleWithProviders} from '@angular/core'
 import {Routes, RouterModule} from '@angular/router'
-import {CreationsComponent} from './creations/creations.component'
+import {StreetComponent} from './street/street.component'
+import {OceanComponent} from './ocean/ocean.component'
+import {PinstripingComponent} from './pinstriping/pinstriping.component'
+import {HistoryComponent} from './history/history.component'
 import {AboutComponent} from './about/about.component'
 import {ContactComponent} from './contact/contact.component'
 
 const routes: Routes = [
     {
         path: '',
-        component: CreationsComponent
+        component: StreetComponent
+    }, {
+        path: 'ocean',
+        component: OceanComponent
+    }, {
+        path: 'pinstriping',
+        component: PinstripingComponent
+    }, {
+        path: 'history',
+        component: HistoryComponent
     }, {
         path: 'about',
         component: AboutComponent
@@ -21,4 +33,6 @@ const routes: Routes = [
     }
 ]
 
-export const routing: ModuleWithProviders<RouterModule> = RouterModule.forRoot(routes)
+export const routing: ModuleWithProviders<RouterModule> = RouterModule.forRoot(routes, {
+    useHash: true
+})

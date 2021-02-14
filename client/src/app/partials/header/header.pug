@@ -2,7 +2,17 @@
     .container
         p.title Dillon Hall Boards
         .menu-bar
-            p
-                a(routerLink="/", routerLinkActive="active", [routerLinkActiveOptions]="{exact: true}", skipLocationChange) Creations
-                a(routerLink="/about", routerLinkActive="active", [routerLinkActiveOptions]="{exact: true}", skipLocationChange) Story
-                a(routerLink="/contact", routerLinkActive="active", [routerLinkActiveOptions]="{exact: true}", skipLocationChange) Contact
+            .row
+                .col-lg-8.col-md-10.col-sm-12.mx-auto
+                    .row
+                        .col-sm-3
+                            p: a(routerLink="/", routerLinkActive="active", [routerLinkActiveOptions]="{exact: true}") Street
+                        .col-sm-3
+                            p: a(routerLink="/ocean", routerLinkActive="active", [routerLinkActiveOptions]="{exact: true}") Ocean
+                        .col-sm-3
+                            p: a(routerLink="/pinstriping", routerLinkActive="active", [routerLinkActiveOptions]="{exact: true}") Pinstriping
+                        .col-sm-3
+                            p: a(routerLink="/contact", routerLinkActive="active", [routerLinkActiveOptions]="{exact: true}") Contact
+                    //- .row
+                        //- .col-sm-4
+                        //-     p: a(routerLink="/history", routerLinkActive="active", [routerLinkActiveOptions]="{exact: true}") History

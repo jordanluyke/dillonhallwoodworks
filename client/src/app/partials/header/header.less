@@ -14,22 +14,27 @@
     .menu-bar {
         margin-bottom: 55px;
         text-align: center;
-        a {
-            font-size: 22px;
-            margin: 0 20px;
-            color: @font-color;
-            text-decoration: none;
-            border-bottom: 2px solid rgba(0, 0, 0, 0);
-            transition: border-bottom-color 300ms;
-            &:first-child {
-                margin-left: 0;
-            }
-            &:last-child {
-                margin-right: 0;
-            }
-            &.active {
-                border-bottom-color: @font-color;
-                cursor: default;
+        @media(max-width: @screen-xs-max) {
+            margin-bottom: 30px;
+        }
+        p {
+            margin-bottom: 25px;
+            a {
+                font-size: 22px;
+                color: @font-color;
+                text-decoration: none;
+                border-bottom: 2px solid rgba(0, 0, 0, 0);
+                transition: border-bottom-color 300ms;
+                &:first-child {
+                    margin-left: 0;
+                }
+                &:last-child {
+                    margin-right: 0;
+                }
+                &.active {
+                    border-bottom-color: @font-color;
+                    cursor: default;
+                }
             }
         }
     }
