@@ -1,28 +1,24 @@
 import {ModuleWithProviders} from '@angular/core'
 import {Routes, RouterModule} from '@angular/router'
-import {StreetComponent} from './street/street.component'
-import {OceanComponent} from './ocean/ocean.component'
+import {HomeComponent} from './home/home.component'
+import {SkateboardsComponent} from './skateboards/skateboards.component'
 import {PinstripingComponent} from './pinstriping/pinstriping.component'
-import {HistoryComponent} from './history/history.component'
-import {AboutComponent} from './about/about.component'
+import {StoryComponent} from './story/story.component'
 import {ContactComponent} from './contact/contact.component'
 
 const routes: Routes = [
     {
         path: '',
-        component: StreetComponent
+        component: HomeComponent
     }, {
-        path: 'ocean',
-        component: OceanComponent
+        path: 'skateboards',
+        component: SkateboardsComponent
     }, {
         path: 'pinstriping',
         component: PinstripingComponent
     }, {
-        path: 'history',
-        component: HistoryComponent
-    }, {
-        path: 'about',
-        component: AboutComponent
+        path: 'story',
+        component: StoryComponent
     }, {
         path: 'contact',
         component: ContactComponent

@@ -2,11 +2,10 @@ import {NgModule} from '@angular/core'
 import {AppComponent} from './app.component'
 import {SharedModule} from '../shared/shared.module'
 import {routing} from './app.routing'
-import {StreetComponent} from './street/street.component'
-import {OceanComponent} from './ocean/ocean.component'
+import {HomeComponent} from './home/home.component'
+import {SkateboardsComponent} from './skateboards/skateboards.component'
 import {PinstripingComponent} from './pinstriping/pinstriping.component'
-import {HistoryComponent} from './history/history.component'
-import {AboutComponent} from './about/about.component'
+import {StoryComponent} from './story/story.component'
 import {ContactComponent} from './contact/contact.component'
 import {HeaderComponent, FooterComponent} from './partials/index'
 
@@ -19,11 +18,10 @@ import {HeaderComponent, FooterComponent} from './partials/index'
         AppComponent,
         HeaderComponent,
         FooterComponent,
-        StreetComponent,
-        OceanComponent,
+        HomeComponent,
+        SkateboardsComponent,
         PinstripingComponent,
-        HistoryComponent,
-        AboutComponent,
+        StoryComponent,
         ContactComponent,
     ],
     bootstrap: [AppComponent]

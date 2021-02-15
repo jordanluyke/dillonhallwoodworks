@@ -5,26 +5,26 @@ import {flatMap, tap, take, toArray, delay} from 'rxjs/operators'
 import {SafeUrl} from '@angular/platform-browser'
 
 @Component({
-    selector: 'street-component',
-    styleUrls: ['street.css'],
-    templateUrl: 'street.html'
+    selector: 'home-component',
+    styleUrls: ['home.css'],
+    templateUrl: 'home.html'
 })
-export class StreetComponent implements OnInit {
+export class HomeComponent implements OnInit {
 
-    // public images = this.imageLoaderService.street
+    // public images = this.imageLoaderService.ocean
     // public showSpinner = true
     // public active = false
 
     // constructor(private imageLoaderService: ImageLoaderService) {}
 
     public ngOnInit(): void {
-        // this.onLoad()
-        //     .pipe(
-        //         tap(Void => this.showSpinner = false),
-        //         delay(100),
-        //         tap(Void => this.active = true)
-        //     )
-        //     .subscribe(new ErrorHandlingSubscriber())
+    //     this.onLoad()
+    //         .pipe(
+    //             tap(Void => this.showSpinner = false),
+    //             delay(100),
+    //             tap(Void => this.active = true)
+    //         )
+    //         .subscribe(new ErrorHandlingSubscriber())
     }
 
     // private onLoad(): Observable<SafeUrl[]> {

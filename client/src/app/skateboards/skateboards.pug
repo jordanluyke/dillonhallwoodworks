@@ -1,0 +1,32 @@
+.container
+    //- p.desc Handshaped. One of a kind.
+    .imgs
+        .row
+            //- .col-sm-10.mx-auto.center
+            .creations-row
+            .col-4: img(src="/img/skateboards/sb1.jpg")
+            .col-4: img(src="/img/skateboards/sb2.jpg")
+            .col-4: img(src="/img/skateboards/sb3.jpg")
+            .col-4: img(src="/img/skateboards/sb4.jpg")
+            .col-4: img(src="/img/skateboards/sb5.jpg")
+            .col-4: img(src="/img/skateboards/sb6.jpg")
+            .col-4: img(src="/img/skateboards/sb7.jpg")
+            .col-4: img(src="/img/skateboards/sb8.jpg")
+            .col-4: img(src="/img/skateboards/sb9.jpg")
+            .col-4: img(src="/img/skateboards/sb10.jpg")
+            .col-4: img(src="/img/skateboards/sb11.jpg")
+            .col-4: img(src="/img/skateboards/sb12.jpg")
+            .col-4: img(src="/img/skateboards/sb13.jpg")
+            .col-4: img(src="/img/skateboards/sb14.jpg")
+            .col-4: img(src="/img/skateboards/sb15.jpg")
+            .col-4: img(src="/img/skateboards/sb16.jpg")
+            .col-4: img(src="/img/skateboards/sb17.jpg")
+            .col-4: img(src="/img/skateboards/sb21.jpg")
+            .col-4: img(src="/img/skateboards/sb18.jpg")
+            .col-4: img(src="/img/skateboards/sb19.jpg")
+            .col-4: img(src="/img/skateboards/sb20.jpg")
+                //- .row(*ngIf="showSpinner"): .col-12: .spinner-ctnr: .fas.fa-yin-yang.fa-spin
+                //- .row.d-flex.align-items-start.creations-row(*ngIf="!showSpinner", [class.active]="active")
+                    .col-md-4.col-sm-6(*ngFor="let img of images")
+                        a.creation([href]="img.getPostUrl()", target="_blank", rel="noreferrer")
+                            img([src]="img.src", *ngIf="img.src != null")
