@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core'
-import {ImageLoaderService, ErrorHandlingSubscriber} from '../../shared/index'
+import {ImgCacheService, ErrorHandlingSubscriber} from '../../shared/index'
 import {from, Observable} from 'rxjs'
-import {flatMap, tap, take, toArray, delay} from 'rxjs/operators'
+import {mergeMap, tap, take, toArray, delay} from 'rxjs/operators'
 import {SafeUrl} from '@angular/platform-browser'
 
 @Component({
@@ -11,25 +11,35 @@ import {SafeUrl} from '@angular/platform-browser'
 })
 export class SkateboardsComponent implements OnInit {
 
-    // public images = this.imageLoaderService.street
-    // public showSpinner = true
-    // public active = false
-    // public imgSrcs = Array.from(Array(21).keys())
-    // .map(i => `/img/skateboards/sb${i+1}.jpg`)
-    public imgIndices = Array.from(Array(21).keys())
-        .map(i => i + 1)
+    public imgSrcs: SafeUrl[] = []
     public activeIndex = -1
+    public isLoading = true
 
-    // constructor(private imageLoaderService: ImageLoaderService) {}
+    constructor(private imgCacheService: ImgCacheService) {}
 
     public ngOnInit(): void {
-        // this.onLoad()
-        //     .pipe(
-        //         tap(Void => this.showSpinner = false),
-        //         delay(100),
-        //         tap(Void => this.active = true)
-        //     )
-        //     .subscribe(new ErrorHandlingSubscriber())
+        let imgSrcs = Array.from(Array(21).keys())
+            .map(i => `/img/skateboards/sb${i+1}.jpg`)
+
+        from(imgSrcs)
+            .pipe(
+                mergeMap(src => this.imgCacheService.get(src)),
+                toArray(),
+                tap(srcs => {
+                    this.imgSrcs = srcs
+                    if(this.imgCacheService.isComponentCached(this.constructor.name)) {
+                        this.isLoading = false
+                    } else {
+                        setTimeout(() => {
+                            this.isLoading = false
+                        }, 200)
+                        this.imgCacheService.addCachedComponent(this.constructor.name)
+                    }
+                }, err => {
+                    this.isLoading = false
+                }),
+            )
+            .subscribe(new ErrorHandlingSubscriber())
     }
 
     public onImgClick(index: number): void {
@@ -38,13 +48,4 @@ export class SkateboardsComponent implements OnInit {
         else
             this.activeIndex = -1
     }
-
-    // private onLoad(): Observable<SafeUrl[]> {
-    //     return from(this.images)
-    //         .pipe(
-    //             flatMap(img => img.onLoad.asObservable()),
-    //             take(this.images.length),
-    //             toArray()
-    //         )
-    // }
 }

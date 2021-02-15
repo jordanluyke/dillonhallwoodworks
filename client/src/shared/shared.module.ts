@@ -5,7 +5,7 @@ import {FormsModule} from '@angular/forms'
 import {HttpClientModule} from '@angular/common/http'
 import {RouterModule} from '@angular/router'
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap'
-import {CacheService, ImageLoaderService} from './services/index'
+import {ImgCacheService} from './services/index'
 
 @NgModule({
     imports: [
@@ -19,8 +19,7 @@ import {CacheService, ImageLoaderService} from './services/index'
     declarations: [
     ],
     providers: [
-        CacheService,
-        ImageLoaderService,
+        ImgCacheService,
     ],
     exports: [
         BrowserModule,

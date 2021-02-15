@@ -7,6 +7,13 @@
 }
 
 .imgs {
+    padding-top: 30px;
+    opacity: 0;
+    transition: padding-top 500ms, opacity 500ms;
+    &.active {
+        padding-top: 0;
+        opacity: 1;
+    }
     .row {
         margin-left: -7.5px;
         margin-right: -7.5px;
@@ -21,34 +28,3 @@
         }
     }
 }
-
-// .creation {
-//     padding: 10px;
-//     cursor: pointer;
-//     outline: 0;
-//     display: block;
-//     img {
-//         width: 100%;
-//         height: auto;
-//     }
-// }
-
-// .spinner-ctnr {
-//     padding-left: 20px;
-//     padding-top: 40px;
-//     text-align: center;
-//     .fa-yin-yang {
-//         color: @title-color;
-//         font-size: 90px;
-//     }
-// }
-
-// .creations-row {
-//     padding-top: 30px;
-//     opacity: 0;
-//     transition: padding-top 500ms, opacity 500ms;
-//     &.active {
-//         padding-top: 0;
-//         opacity: 1;
-//     }
-// }
