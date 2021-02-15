@@ -1,11 +1,7 @@
-.container
-    //- .jay-adams-ctnr.d-flex.justify-content-center
-    .row
-        .col-8-md.mx-auto
-            .jay-adams-ctnr
-                img(src="/img/home/jay-adams.jpg")
-        //- .row(*ngIf="showSpinner"): .col-12: .spinner-ctnr: .fas.fa-yin-yang.fa-spin
-        //- .row.d-flex.align-items-start.creations-row(*ngIf="!showSpinner", [class.active]="active")
-            .col-md-4.col-sm-6(*ngFor="let img of images")
-                a.creation([href]="img.getPostUrl()", target="_blank", rel="noreferrer")
-                    img([src]="img.src", *ngIf="img.src != null")
+.center
+    img(src="/img/home/jay-adams.jpg")
+//- .row(*ngIf="showSpinner"): .col-12: .spinner-ctnr: .fas.fa-yin-yang.fa-spin
+//- .row.d-flex.align-items-start.creations-row(*ngIf="!showSpinner", [class.active]="active")
+    .col-md-4.col-sm-6(*ngFor="let img of images")
+        a.creation([href]="img.getPostUrl()", target="_blank", rel="noreferrer")
+            img([src]="img.src", *ngIf="img.src != null")
