@@ -5,8 +5,3 @@
         .row
             div(*ngFor="let src of imgSrcs; let i = index", [ngClass]="{'col-4': activeIndex != i, 'col-12': activeIndex == i}", (click)="onImgClick(i)")
                 img([src]="src")
-                //- img([src]="'/img/skateboards/sb' + i + '.jpg'")
-                //- .row.d-flex.align-items-start.creations-row(*ngIf="!showSpinner", [class.active]="active")
-                    .col-md-4.col-sm-6(*ngFor="let img of images")
-                        a.creation([href]="img.getPostUrl()", target="_blank", rel="noreferrer")
-                            img([src]="img.src", *ngIf="img.src != null")

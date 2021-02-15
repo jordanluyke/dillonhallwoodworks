@@ -1,32 +1,30 @@
 @import "less/variables.less";
 
-.creation {
-    padding: 10px;
-    cursor: pointer;
-    outline: 0;
-    display: block;
-    img {
-        width: 100%;
-        height: auto;
-    }
-}
-
-.spinner-ctnr {
-    padding-left: 20px;
-    padding-top: 40px;
+.desc {
     text-align: center;
-    .fa-yin-yang {
-        color: @title-color;
-        font-size: 90px;
-    }
+    font-size: 24px;
+    margin-bottom: 45px;
 }
 
-.creations-row {
+.imgs {
     padding-top: 30px;
     opacity: 0;
     transition: padding-top 500ms, opacity 500ms;
     &.active {
         padding-top: 0;
         opacity: 1;
+    }
+    .row {
+        margin-left: -7.5px;
+        margin-right: -7.5px;
+        div[class^="col-"] {
+            margin-bottom: 15px;
+            padding-left: 7.5px;
+            padding-right: 7.5px;
+        }
+        img {
+            width: 100%;
+            height: auto;
+        }
     }
 }
