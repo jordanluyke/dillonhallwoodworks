@@ -14,6 +14,11 @@ export class SkateboardsComponent implements OnInit {
     // public images = this.imageLoaderService.street
     // public showSpinner = true
     // public active = false
+    // public imgSrcs = Array.from(Array(21).keys())
+    // .map(i => `/img/skateboards/sb${i+1}.jpg`)
+    public imgIndices = Array.from(Array(21).keys())
+        .map(i => i + 1)
+    public activeIndex = -1
 
     // constructor(private imageLoaderService: ImageLoaderService) {}
 
@@ -25,6 +30,13 @@ export class SkateboardsComponent implements OnInit {
         //         tap(Void => this.active = true)
         //     )
         //     .subscribe(new ErrorHandlingSubscriber())
+    }
+
+    public onImgClick(index: number): void {
+        if(this.activeIndex != index)
+            this.activeIndex = index
+        else
+            this.activeIndex = -1
     }
 
     // private onLoad(): Observable<SafeUrl[]> {

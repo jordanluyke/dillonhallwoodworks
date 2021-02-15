@@ -7,6 +7,6 @@ import {ImageLoaderService} from '../shared/index'
 })
 export class AppComponent {
     constructor(private imageLoaderService: ImageLoaderService) {
-        imageLoaderService.start()
+        // imageLoaderService.start()
     }
 }
