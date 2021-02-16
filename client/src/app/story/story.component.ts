@@ -7,7 +7,4 @@ import {Component} from '@angular/core'
 })
 export class StoryComponent {
 
-    // public images = this.imageLoaderService.story
-
-    // constructor(private imageLoaderService: ImageLoaderService) {}
 }

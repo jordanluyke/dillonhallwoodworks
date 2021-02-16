@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core'
 import {ImgCacheService, ErrorHandlingSubscriber} from '../../shared/index'
-import {from, Observable} from 'rxjs'
-import {mergeMap, tap, take, toArray, delay, concatMap} from 'rxjs/operators'
+import {from} from 'rxjs'
+import {tap, toArray, concatMap} from 'rxjs/operators'
 import {SafeUrl} from '@angular/platform-browser'
 
 @Component({
