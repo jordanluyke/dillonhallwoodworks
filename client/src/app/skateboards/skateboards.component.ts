@@ -18,7 +18,7 @@ export class SkateboardsComponent implements OnInit {
     constructor(private imgCacheService: ImgCacheService) {}
 
     public ngOnInit(): void {
-        let imgSrcs = Array.from(Array(26).keys())
+        let imgSrcs = Array.from(Array(28).keys())
             .map(i => `/img/skateboards/sb${i+1}.jpg`)
 
         from(imgSrcs)
