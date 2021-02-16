@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core'
 import {ImgCacheService, ErrorHandlingSubscriber} from '../../shared/index'
 import {from, Observable} from 'rxjs'
-import {mergeMap, tap, take, toArray, delay} from 'rxjs/operators'
+import {mergeMap, tap, take, toArray, delay, concatMap} from 'rxjs/operators'
 import {SafeUrl} from '@angular/platform-browser'
 
 @Component({
@@ -18,12 +18,12 @@ export class SkateboardsComponent implements OnInit {
     constructor(private imgCacheService: ImgCacheService) {}
 
     public ngOnInit(): void {
-        let imgSrcs = Array.from(Array(21).keys())
+        let imgSrcs = Array.from(Array(26).keys())
             .map(i => `/img/skateboards/sb${i+1}.jpg`)
 
         from(imgSrcs)
             .pipe(
-                mergeMap(src => this.imgCacheService.get(src)),
+                concatMap(src => this.imgCacheService.get(src)),
                 toArray(),
                 tap(srcs => {
                     this.imgSrcs = srcs
