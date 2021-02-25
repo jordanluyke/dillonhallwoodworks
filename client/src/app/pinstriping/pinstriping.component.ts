@@ -18,8 +18,18 @@ export class PinstripingComponent implements OnInit {
     constructor(private imgCacheService: ImgCacheService) {}
 
     public ngOnInit(): void {
-        let imgSrcs = Array.from(Array(8).keys())
-            .map(i => `/img/pinstriping/ps${i+1}.jpg`)
+        let imgSrcs = Array.from([
+            1,
+            9,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+        ])
+            .map(i => `/img/pinstriping/ps${i}.jpg`)
 
         from(imgSrcs)
             .pipe(
