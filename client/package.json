@@ -31,7 +31,7 @@
     "less": "4.1.1",
     "less-plugin-autoprefix": "2.0.0",
     "minimist": "1.2.5",
-    "pug": "3.0.0",
+    "pug": "3.0.1",
     "reflect-metadata": "0.1.13",
     "regenerator-runtime": "0.13.7",
     "rollup": "2.38.5",
